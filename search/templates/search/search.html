@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GET SEARCH RESULTS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            border: 1px solid #ddd;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 1.2em;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #f9f9f9;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 10px rgba(0, 86, 179, 0.2);
+            outline: none;
+            background: #ffffff;
+        }
+
+        button {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 86, 179, 0.2);
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #0056b3, #003d7a);
+            transform: scale(1.05);
+        }
+
+        button:active {
+            background: linear-gradient(90deg, #003d7a, #001f3f);
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GET SEARCH RESULTS</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+</html>
